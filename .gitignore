@@ -3,9 +3,28 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Django stuff:
+# Django:
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media/
+
+# Файлы настроек
+*.ini
+*.conf
+*.cnf
+
+# Файлы миграций
+migrations/
+
+# Статические файлы
+staticfiles/
+
+# Виртуальное окружение
+venv/
+env/
+
+# Файлы IDE
+.idea/
+.vscode/
