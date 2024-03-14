@@ -1,0 +1,52 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    background-color: #f8f8f8;
+}
+
+.welcome-banner {
+    text-align: center;
+}
+
+nav {
+    /* Styles for navigation */
+}
+
+.welcome-banner h1 {
+    font-size: 2em;
+}
+
+.welcome-banner p {
+    font-size: 1em;
+}
+
+.welcome-banner form {
+    /* Style your form input and button here */
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.products .product {
+    /* Styles for individual product */
+}
+
+.seasonal, .deals {
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
