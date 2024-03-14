@@ -11,7 +11,11 @@
 
 {% block content %}
 <body>
-    USER
-    
+    USER {{name}}
+    <form action="/auth/logout/" method="POST">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+
 </body>  
 {% endblock %} 
