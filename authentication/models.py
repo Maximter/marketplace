@@ -45,3 +45,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+    class Meta:
+        permissions = (
+            ("is_seller", "Can use seller function"),
+            ("is_support", "Can use support function"),
+            ("is_admin", "Can use admin function"),
+        )

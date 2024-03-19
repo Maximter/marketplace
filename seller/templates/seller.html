@@ -11,14 +11,8 @@
 
 {% block content %}
 <body>
-    USER {{name}}
-    <form action="/seller/create/" method="GET">
-        <button type="submit">Become a seller</button>
-    </form>
-    <form action="/auth/logout/" method="POST">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-    </form>
+    SELLER {{name}}
+
 
 </body>  
 {% endblock %} 
