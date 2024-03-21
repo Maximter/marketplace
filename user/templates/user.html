@@ -12,13 +12,20 @@
 {% block content %}
 <body>
     USER {{name}}
-    <form action="/seller/create/" method="GET">
-        <button type="submit">Become a seller</button>
-    </form>
+
+    {% if seller %}
+        <form action="/seller/" method="GET">
+            <button type="submit">To seller account</button>
+        </form>
+    {% else %}
+        <form action="/seller/create/" method="GET">
+            <button type="submit">Become a seller</button>
+        </form>
+    {% endif %}
+ 
     <form action="/auth/logout/" method="POST">
         {% csrf_token %}
         <button type="submit">Logout</button>
     </form>
-
 </body>  
 {% endblock %} 
