@@ -1,0 +1,20 @@
+ {% extends "base.html" %}
+ {% load static %}
+
+{% block head %}
+<head>
+    
+    <title>FreshMarket USER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>    
+{% endblock %}
+
+{% block content %}
+<body>
+    SELLER {{name}}
+
+    <form action="/user/" method="GET">
+        <button type="submit">To user account</button>
+    </form>
+</body>  
+{% endblock %} 

@@ -3,8 +3,5 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    if request.user.is_authenticated:
-        context = {'name': request.user.first_name}
-    else:
-        context = {'name': None}
+    context = {'name': request.user.first_name, 'seller': request.user.groups.filter(name='Sellers').exists()}
     return render(request,  'user.html', context)
