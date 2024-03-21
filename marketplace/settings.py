@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'homepage',
     'user',
     'authentication',
+    'seller',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,22 @@
+ {% extends "base.html" %}
+ {% load static %}
+
+{% block head %}
+<head>
+    
+    <title>FreshMarket USER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>    
+{% endblock %}
+
+{% block content %}
+<body>
+    {{name}}, are you sure that you wanna become a seller?
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes</button>
+        <button type="submit" formaction="/user/">No</button>
+    </form>
+</body>  
+{% endblock %} 
