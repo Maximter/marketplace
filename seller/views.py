@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 from authentication.models import CustomUser
 from django.contrib.auth.models import Permission
 
 # Create your views here.
-@permission_required("is_seller", raise_exception=False)
+@permission_required("authentication.may_sell", raise_exception=True)
 def index(request):
     context = {'name': request.user.first_name}
     return render(request, 'seller.html', context)
@@ -17,14 +17,12 @@ def create(request):
         content_type = ContentType.objects.get_for_model(CustomUser)
         try:
             permission = Permission.objects.get(
-                codename="is_seller",
+                codename="may_sell",
                 content_type=content_type,
             )
             user.user_permissions.add(permission)
-            user.save()
         except Permission.DoesNotExist:
             print("Permission doesn't exist")
-            raise(Exception)
         return redirect('seller')  
 
     context = {'name': request.user.first_name}
