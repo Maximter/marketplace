@@ -1,0 +1,29 @@
+ {% extends "base.html" %}
+ {% load static %}
+
+{% block head %}
+<head>
+    
+    <title>FreshMarket USER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>    
+{% endblock %}
+
+{% block content %}
+<body>
+    all categories
+
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="{% url 'category:category' category.name %}">
+                    <img src="{{ category.cover.url }}" alt="{{ category.name }}" style="width: 200px;">
+                </a>
+                <a href="{% url 'category:category' category.name %}">
+                    {{ category.name }}
+                </a> 
+            </li>
+        {% endfor %}
+    </ul>
+</body>  
+{% endblock %} 
