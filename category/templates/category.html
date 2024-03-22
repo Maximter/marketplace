@@ -11,8 +11,8 @@
 
 {% block content %}
 <body>
-    category
-
-    
+    category {{ category.name }}
+    <br>
+    <img src="{{ category.cover.url }}" alt="{{ category.name }}" style="width: 90%; height: 90px; object-fit: cover;">
 </body>  
 {% endblock %} 
