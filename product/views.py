@@ -14,7 +14,7 @@ def index(request, product_id):
     except Product.DoesNotExist:
         return redirect('home')
     images = ProductImage.objects.filter(product=product)
-    context = {'product': product, 'images': images}
+    context = {'product': product, 'images': product}
     return render(request, 'product.html', context)
 
 
