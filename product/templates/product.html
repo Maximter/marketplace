@@ -11,8 +11,20 @@
 
 {% block content %}
 <body>
-    product
+    Product <br> <br>
+    {% for image in images %}
+        <img src="{{ image.image.url }}" alt="{{product.name}}" style="width: 200px;">
+    {% endfor %}
+    <br>Name: <br>
+    {{product.name}} <br> <br>
+    Category: <br>
+    <a href="/category/{{product.category}}">{{product.category}}</a> <br> <br>
+    Description: <br>
+    {{product.description}} <br> <br>
+    Rating: <br>
+    {{product.rating}}/10 <br> <br>
+    Seller: <br>
+    {{product.owner}} <br> <br>
 
-    <a href="{% url 'seller' %}">To seller account</a>
 </body>  
 {% endblock %} 

@@ -11,12 +11,17 @@
 
 {% block content %}
 <body>
-    {{name}}, create new product
+    Create new product
     
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Create</button>
-    </form> <br> <br>
+        {{ productForm.as_p }}
+        {{ formset.management_form }}
+        {% for form in formset %}
+            {{ form.as_p }}
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
+    
 </body>  
 {% endblock %} 

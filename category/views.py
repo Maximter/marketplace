@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
-
+from django.shortcuts import get_object_or_404, render, redirect
+from django.db.models import OuterRef, Subquery
 from category.models import Category
+from product.models import ProductImage
 
 # Create your views here.
 def index(request):
@@ -8,9 +9,13 @@ def index(request):
     return render(request, 'all_categories.html', {'categories': categories })
 
 def category(request, category_name):
-    try:
-        category = Category.objects.get(name=category_name)
-    except Category.DoesNotExist:
-        return redirect('home')
-    
-    return render(request, 'category.html', {'category': category})
+    category = get_object_or_404(Category, name=category_name)
+
+    products_with_first_image = category.products.annotate(
+        first_image=Subquery(
+            ProductImage.objects.filter(
+                product=OuterRef('pk')
+            ).order_by('id').values('image')[:1]
+        )
+    )
+    return render(request, 'category.html', {'category': category, 'products': products_with_first_image})
