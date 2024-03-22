@@ -1,0 +1,27 @@
+ {% extends "base.html" %}
+ {% load static %}
+
+{% block head %}
+<head>
+    
+    <title>FreshMarket USER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>    
+{% endblock %}
+
+{% block content %}
+<body>
+    Create new product
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ productForm.as_p }}
+        {{ formset.management_form }}
+        {% for form in formset %}
+            {{ form.as_p }}
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
+    
+</body>  
+{% endblock %} 

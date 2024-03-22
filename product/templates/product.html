@@ -1,0 +1,30 @@
+ {% extends "base.html" %}
+ {% load static %}
+
+{% block head %}
+<head>
+    
+    <title>FreshMarket USER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>    
+{% endblock %}
+
+{% block content %}
+<body>
+    Product <br> <br>
+    {% for image in images %}
+        <img src="{{ image.image.url }}" alt="{{product.name}}" style="width: 200px;">
+    {% endfor %}
+    <br>Name: <br>
+    {{product.name}} <br> <br>
+    Category: <br>
+    <a href="/category/{{product.category}}">{{product.category}}</a> <br> <br>
+    Description: <br>
+    {{product.description}} <br> <br>
+    Rating: <br>
+    {{product.rating}}/10 <br> <br>
+    Seller: <br>
+    {{product.owner}} <br> <br>
+
+</body>  
+{% endblock %} 
