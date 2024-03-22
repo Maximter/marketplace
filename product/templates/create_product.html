@@ -11,12 +11,12 @@
 
 {% block content %}
 <body>
-    SELLER {{name}}
-
-    <form action="/user/" method="GET">
-        <button type="submit">To user account</button>
-    </form>
-
-    <a href="{% url 'product:create' %}">Add new product</a>
+    {{name}}, create new product
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form> <br> <br>
 </body>  
 {% endblock %} 
